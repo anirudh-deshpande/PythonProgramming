@@ -65,9 +65,9 @@ def combinationSumBottomUp(nums, target):
 
 if __name__ == "__main__":
 
-    target = 100
-    nums = [1,2,3,4,6]
+    target = 12
+    nums = [2, 3 , 7]
     ans = 34332
 
     cache = [-1] * (target + 1)
-    print(combinationSumTopDownWithDP(nums, target, cache))
+    print(combinationSumTopDown(nums, target, cache))

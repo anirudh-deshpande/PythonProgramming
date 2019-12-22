@@ -1,19 +1,19 @@
 import time
 import sys
 
-def score_combinations_backtracking(nums, i, built_up_target, target):
+def score_combinations_backtracking(nums, i, target):
 
-    if i > len(nums) or built_up_target > target:
-        return 0 # correct?
+    if target < 0:
+        return 0
 
-    if built_up_target == target:
+    if target == 0:
         return 1
 
-    state_count = 0
+    count = 0
     for j in range(i, len(nums)):
-        state_count += score_combinations_backtracking(nums, j, built_up_target+nums[j], target)
+        count += score_combinations_backtracking(nums, j, target - nums[j])
 
-    return state_count
+    return count
 
 
 def score_combinations_top_down_memoization(nums, i, target, cache):
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     target = 100
 
     start = time.time_ns()
-    print(score_combinations_backtracking(nums, 0, 0, target))
+    print(score_combinations_backtracking(nums, 0, target))
     print("Time backtracking: ", (time.time_ns()-start)/1000000000)
 
     start = time.time_ns()
