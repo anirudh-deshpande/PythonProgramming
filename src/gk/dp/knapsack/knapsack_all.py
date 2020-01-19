@@ -39,6 +39,7 @@ def knapsack_top_down_dp(profits, weights, sack_capacity, i, cache):
         return 0
 
     if cache[i][sack_capacity] != -1:
+        print("here")
         return cache[i][sack_capacity]
 
     profit_with_this_item = 0
@@ -162,6 +163,10 @@ if __name__ == "__main__":
     # start = time.process_time()
     # print(knapsack_backtracking(profits, weights, sack_capacity, 0))
     # print(time.process_time() - start)
+
+    profits = [2,3,7,11,13]
+    weights = [2,3,7,11,13]
+    sack_capacity = 29000
 
     cache = [[-1] * (sack_capacity+1) for _ in range(len(profits))]
     start = time.process_time()
